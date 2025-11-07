@@ -2,8 +2,16 @@ import react from "react";
 
 class MyComponent extends react.Component {
   // let name = "My Component";
-  state = { name: "Nhân" };
+  state = { name: "", chanel: "" };
   handleOnChangeName = (event) => {
+    console.log(
+      "event",
+      event.target.value,
+      "event targer:",
+      event.target,
+      "event object:",
+      event
+    );
     this.setState({ name: event.target.value });
   };
 
@@ -19,7 +27,11 @@ class MyComponent extends react.Component {
           <h1>This is {this.state.name}</h1>
         </div>
         <div className="second">
-          <h1>This is {this.state.name}</h1>
+          <input
+            type="text"
+            onChange={(event) => this.setState({ chanel: event.target.value })}
+          />
+          <h1>This is {this.state.chanel}</h1>
         </div>
         <div className="third">
           <button
