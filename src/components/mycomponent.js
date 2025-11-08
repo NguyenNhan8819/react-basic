@@ -3,10 +3,18 @@ import ChildComponent from "./childComponent";
 
 class MyComponent extends react.Component {
   // let name = "My Component";
-  state = { firstName: "", lastName: "" };
+  state = {
+    firstName: "",
+    lastName: "",
+    arrJobs: [
+      { id: "job1", title: "Developer", salary: "500$" },
+      { id: "job2", title: "Tester", salary: "400$" },
+      { id: "job3", title: "Project Manager", salary: "1000$" },
+    ],
+  };
 
   render() {
-    const { firstName, lastName } = this.state;
+    const { firstName, lastName, arrJobs } = this.state;
     return (
       <>
         <form>
@@ -37,8 +45,8 @@ class MyComponent extends react.Component {
         <h1>
           Hello {this.state.firstName} {this.state.lastName}
         </h1>
-        <ChildComponent name={firstName} /> <br />
-        <ChildComponent name={lastName} />
+        <ChildComponent arrJobs={arrJobs} /> <br />
+        <ChildComponent name={lastName} arrJobs={12} />
       </>
     );
   }
