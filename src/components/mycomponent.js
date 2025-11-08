@@ -7,9 +7,9 @@ class MyComponent extends react.Component {
     firstName: "",
     lastName: "",
     arrJobs: [
-      { id: "job1", title: "Developer", salary: "500$" },
-      { id: "job2", title: "Tester", salary: "400$" },
-      { id: "job3", title: "Project Manager", salary: "1000$" },
+      { id: "job1", title: "Developer", salary: "600" },
+      { id: "job2", title: "Tester", salary: "400" },
+      { id: "job3", title: "Project Manager", salary: "1000" },
     ],
   };
 
@@ -45,8 +45,7 @@ class MyComponent extends react.Component {
         <h1>
           Hello {this.state.firstName} {this.state.lastName}
         </h1>
-        <ChildComponent arrJobs={arrJobs} /> <br />
-        <ChildComponent name={lastName} arrJobs={12} />
+        <ChildComponent arrJobs={arrJobs} />
       </>
     );
   }
