@@ -11,12 +11,18 @@ class MyComponent extends react.Component {
       { id: "job3", title: "Project Manager", salary: "1000" },
     ],
   };
+  handleAddNewJob = (job) => {
+    console.log(">>> check job from parent: ", job);
+    this.setState({
+      arrJobs: [...this.state.arrJobs, job],
+    });
+  };
 
   render() {
     const { arrJobs } = this.state;
     return (
       <>
-        <AddComponent />
+        <AddComponent addNewJob={this.handleAddNewJob} />
         <ChildComponent arrJobs={arrJobs} />
       </>
     );

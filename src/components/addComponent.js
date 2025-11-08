@@ -2,19 +2,32 @@ import React from "react";
 
 class AddComponent extends React.Component {
   state = {
-    titleJob: "",
+    title: "",
     salary: "",
   };
+  handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(this.state);
+    if (!this.state.title || !this.state.salary) {
+      alert("Missing required params");
+      return;
+    }
+    this.props.addNewJob({
+      id: Math.floor(Math.random() * 1000),
+      title: this.state.title,
+      salary: this.state.salary,
+    });
+  };
   render() {
-    const { titleJob, salary } = this.state;
+    const { title, salary } = this.state;
     return (
       <>
         <form>
           <label>Job's title: </label> <br />
           <input
             type="text"
-            value={titleJob}
-            onChange={(e) => this.setState({ titleJob: e.target.value })}
+            value={title}
+            onChange={(e) => this.setState({ title: e.target.value })}
           />
           <br />
           <label>Salary: </label> <br />
@@ -27,11 +40,7 @@ class AddComponent extends React.Component {
           <input
             type="submit"
             value="Submit"
-            onClick={(e) => {
-              alert("Bạn đã click");
-              e.preventDefault();
-              console.log(this.state);
-            }}
+            onClick={(e) => this.handleSubmit(e)}
           />
         </form>
       </>
