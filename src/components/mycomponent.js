@@ -1,24 +1,26 @@
 import react from "react";
+import ChildComponent from "./childComponent";
 
 class MyComponent extends react.Component {
   // let name = "My Component";
   state = { firstName: "", lastName: "" };
 
   render() {
+    const { firstName, lastName } = this.state;
     return (
       <>
         <form>
           <label>First Name: </label>
           <input
             type="text"
-            value={this.state.firstName}
+            value={firstName}
             onChange={(e) => this.setState({ firstName: e.target.value })}
           />
           <br />
           <label>Last Name: </label>
           <input
             type="text"
-            value={this.state.lastName}
+            value={lastName}
             onChange={(e) => this.setState({ lastName: e.target.value })}
           />
           <br />
@@ -35,6 +37,8 @@ class MyComponent extends react.Component {
         <h1>
           Hello {this.state.firstName} {this.state.lastName}
         </h1>
+        <ChildComponent name={firstName} /> <br />
+        <ChildComponent name={lastName} />
       </>
     );
   }
