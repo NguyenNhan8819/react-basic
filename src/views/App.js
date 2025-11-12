@@ -1,15 +1,32 @@
 import logo from "./logo.svg";
 import "./App.scss";
 import MyComponent from "../components/mycomponent";
+import ListToDo from "./Todos/ListToDo";
+import { ToastContainer, toast, Bounce } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>Hello world! Welcome to React.</p>
-        <MyComponent />
+        <p>Single todo app with React</p>
+        {/* <MyComponent /> */}
+        <ListToDo />
       </header>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick={false}
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+        transition={Bounce}
+      />
     </div>
   );
 }

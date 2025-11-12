@@ -17,6 +17,11 @@ class AddComponent extends React.Component {
       title: this.state.title,
       salary: this.state.salary,
     });
+    //clear input field after submit
+    this.setState({
+      title: "",
+      salary: "",
+    });
   };
   render() {
     const { title, salary } = this.state;
