@@ -57,6 +57,7 @@ class ListToDo extends React.Component {
     console.log(">>> check empty obj: ", isEmptyObj);
     return (
       <>
+        <p>Single todo app with React</p>
         <AddToDo addNewTodo={this.handleAddNewTodo} />
         <ul>
           {todos.map((item, index) => {
