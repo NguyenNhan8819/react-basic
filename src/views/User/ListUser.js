@@ -1,6 +1,7 @@
 import react from "react";
 import axios from "axios";
 import "./ListUser.scss";
+import { withRouter } from "./withRouter";
 
 class ListUser extends react.Component {
   state = {
@@ -20,6 +21,11 @@ class ListUser extends react.Component {
         console.error("Error fetching users:", error);
       });
   }
+  handleViewDetailUser = (user) => {
+    // Navigate to detail user page
+    this.props.router.navigate(`/users/${user.id}`);
+  };
+
   render() {
     let { ListUsers } = this.state;
     return (
@@ -31,7 +37,11 @@ class ListUser extends react.Component {
             ListUsers.length > 0 &&
             ListUsers.map((user) => {
               return (
-                <div key={user.id} className="user-content">
+                <div
+                  key={user.id}
+                  className="user-content"
+                  onClick={() => this.handleViewDetailUser(user)}
+                >
                   {user.id} - {user.name} - {user.email}
                 </div>
               );
@@ -42,4 +52,4 @@ class ListUser extends react.Component {
   }
 }
 
-export default ListUser;
+export default withRouter(ListUser);

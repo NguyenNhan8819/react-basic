@@ -9,6 +9,7 @@ import Nav from "./Nav/Nav";
 import React from "react";
 import Home from "./Nav/Home";
 import ListUser from "./User/ListUser";
+import DetailUser from "./User/DetailUser";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
             <Route path="/todo" element={<ListToDo />} />
             <Route path="/about" element={<MyComponent />} />
             <Route path="/users" element={<ListUser />} />
+            <Route path="/users/:id" element={<DetailUser />} />
           </Routes>
         </header>
 
